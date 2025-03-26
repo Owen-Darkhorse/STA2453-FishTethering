@@ -1,6 +1,6 @@
 # The script aims to select acoustic data from the preprocessed dataset with class labels
 
-def prep_acoustic_data(inputPath, outputPath):
+def prepAcousticData(inputPath, outputPath):
     import pandas as pd
     import re
 
