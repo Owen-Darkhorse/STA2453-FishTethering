@@ -21,14 +21,14 @@ def spectrogram(df, lengthsByFish, fishList, saveFig=True, title=None, outputPat
     # Create the spectrogram
     df.reset_index(drop=True, inplace=True)
 
-    plt.figure(figsize=(16, 8))
+    plt.figure(figsize=(12, 8))
     sns.heatmap(df.T, cmap="viridis") 
     plt.title(title)
     plt.vlines(x=lengthsByFish, ymin = -1, ymax = 480, color='red', linestyle='--', label='n')
     plt.xticks(ticks=lengthsByFish, labels=fishList, rotation=45)
     plt.xlabel("Time (s)")
     plt.tight_layout()
-    plt.close()
+    plt.show()
 
     if saveFig:
         plt.savefig(os.path.join(outputPath, f"{title}.png"), dpi=300)

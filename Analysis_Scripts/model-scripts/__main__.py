@@ -48,22 +48,13 @@ readingEnd = time.time()
 readingTime = readingEnd - readingStart
 
 # Optional: Load the already saved data
-dataPath = os.path.join(curWorkingDir, "ProcessedData", "acousticDataFrame.csv")
-df = pd.read_csv(dataPath)
-identifiers = df[["fishNum", "species"]]
-X = df.drop(columns=["fishNum", "species"])
-lengthsByFish = identifiers.groupby("fishNum").size().tolist()
+# dataPath = os.path.join(curWorkingDir, "ProcessedData", "acousticDataFrame.csv")
+# df = pd.read_csv(dataPath)
+# identifiers = df[["fishNum", "species"]]
+# X = df.drop(columns=["fishNum", "species"])
+# lengthsByFish = identifiers.groupby("fishNum").size().tolist()
 
-# Inpect the pooled spectrogram of all fish for PCA reduction
-cumLengths = np.cumsum(lengthsByFish)
-fishList = identifiers["fishNum"].unique()
 
-specStart = time.time()
-spectrogram(X, cumLengths, fishList,\
-            saveFig=True, title="Spectrogram of all fish before PCA",
-            outputPath=newResultDir)
-specEnd = time.time()
-specTime = specEnd - specStart
 
 ## PCA loading vector matrix V
 pcaStart = time.time()
@@ -97,14 +88,20 @@ plt.savefig(newResultDir + "PC-Projections-of-Raw-Data.png")
 plt.show()
 Z_hat.drop(columns=["species"], inplace=True)
 
-## Compute X_hat and plot it
+## Compute X and X_hat and plot spectrograms for Each
 specStart = time.time()
+# Inpect the pooled spectrogram of all fish for PCA reduction
+cumLengths = np.cumsum(lengthsByFish)
+fishList = identifiers["fishNum"].unique()
 X_hat = pd.DataFrame(np.dot(Z_hat, V_hard.T), columns=X.columns)
-# spectrogram(X_hat, cumLengths, fishList, \
-            # saveFig=True, title="Spectrogram of all fish after PCA",\
-            # outputPath=newResultDir)
+spectrogram(X, cumLengths, fishList,\
+            saveFig=True, title="Spectrogram of all fish before PCA",
+            outputPath=newResultDir)
+spectrogram(X_hat, cumLengths, fishList, \
+            saveFig=True, title="Spectrogram of all fish after PCA",\
+            outputPath=newResultDir)
 specEnd = time.time()
-specTime = specTime + (specEnd - specStart)
+specTime = specEnd - specStart
 
 ## Plot the Scatter plot of the first 2 PCs
 scatterStart = time.time()
