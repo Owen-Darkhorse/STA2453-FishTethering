@@ -12,7 +12,7 @@ Folder | Description
 &nbsp; [eda-scripts](Analysis_Scripts/eda-scripts) | Exploratory Data Analysis Scripts
 &nbsp; [R-scripts](Analysis_Scripts/R-scripts) | R scripts that extract and concatenate acoustic data from multiple fish
 [Data](Data) | contains the raw acoustic data and Echoview processing scripts; each subfolder represent a fish
-[ProcessedData](ProcessedData) | [R-scripts](Analysis_Scripts/R-scripts) concatenate raw individual data and output the processed data here. Additinally, when you run __main__.py,the data preparation step will subset the target strengths and fish identifier variables and output the subsetted data here, named "acousticData.csv"
+[ProcessedData](ProcessedData) | [R-scripts](Analysis_Scripts/R-scripts) filters and concatenate individual raw data and output the processed data here, named as named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData". Additinally, when you run __main__.py,the data preparation step will subset the target strengths and fish number and species and output the subsetted data here, named "acousticData.csv"
 [NonPingData](NonPingData) | (not used in this project)  contains fish bio data
 [ExportedFigures](ExportedFigures) | (not used in this project)  Figures generated from analysis scripts
 WritingSections | Report writing sections
