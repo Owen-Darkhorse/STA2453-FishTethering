@@ -5,6 +5,9 @@ Each year, the government of Ontario spends over 70 million dollars on fish spec
 
 
 ## Folder Structure
+Click here [Run-Pipeline](Analysis_Scripts/run_pipeline.sh) to locate the file that runs modelling pipeline.
+Click here [ExampleDemo](Analysis_Scripts/ExampleDemo.ipynb)to locate the an example demo.
+
 Folder | Description
 ---------- | --------------------------------------------------
 [Analyis_Scripts](Analysis_Scripts) | data analysis scripts
@@ -15,7 +18,6 @@ Folder | Description
 [ProcessedData](ProcessedData) | [R-scripts](Analysis_Scripts/R-scripts) filters and concatenate individual raw data and output the processed data here, named as named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData". Additinally, when you run __main__.py,the data preparation step will subset the target strengths and fish number and species and output the subsetted data here, named "acousticData.csv"
 [NonPingData](NonPingData) | (not used in this project)  contains fish bio data
 [ExportedFigures](ExportedFigures) | (not used in this project)  Figures generated from analysis scripts
-WritingSections | Report writing sections
 [ExploratoryAnalysis](ExploratoryAnalysis) | (not used in this project) contains code to explore and test analysis methods
 &nbsp; [ExploratoryAnalysis/FishTrack-EDA-Tool](ExploratoryAnalysis/FishTrack-EDA-Tool) | (not used in this project) home folder for shiny app
 [Images](Images) | Contains spectrograms, PCA plots, frequency covariance heatmaps, and a UMAP made during exploratory stage of analysis.
