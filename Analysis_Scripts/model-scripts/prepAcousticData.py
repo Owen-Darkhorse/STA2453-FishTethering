@@ -1,7 +1,18 @@
 # The script aims to select acoustic data from the preprocessed dataset with class labels
 
 def prepAcousticData(inputPath, outputPath):
-
+    '''
+    Extracts the acoustic features from the preprocessed dataset, impute NA values by 0,
+    and saves them to a new csv file.
+    Args:
+        inputPath (str): Path to the preprocessed dataset.
+        outputPath (str): Path to save the selected data.
+    Returns:
+        dict: A dictionary containing the following keys:
+            - "X": DataFrame of acoustic features.
+            - "identifiers": DataFrame of fish identifiers (fishNum and species).
+            - "lengthsByFish": List of lengths of each fish.
+    '''
     import pandas as pd
     import re
 

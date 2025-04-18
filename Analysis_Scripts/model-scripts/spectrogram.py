@@ -9,9 +9,12 @@ def spectrogram(df, lengthsByFish, fishList, saveFig=True, title=None, outputPat
     """
     Function to plot the spectrogram (or heatmap) of the fish's target strength in the first n observations
     Args:
-        df: DataFrame with the audio file paths
-        fishNum: Fish number to plot the spectrogram
-        saveFig: Boolean to save the figure
+        df: DataFrame containing the target strength data
+        lengthsByFish (pd.Series): List of lengths of each fish
+        fishList (list of str): List of fish numbers, for example ["LT001", "BUR001", "LWF001", "SMB001"]
+        saveFig(Bool): Boolean to save the figure
+        title (str): Title of the figure
+        outputPath (str): Path to save the figure
     Returns:
         None
     """

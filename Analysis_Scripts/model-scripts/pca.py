@@ -9,6 +9,18 @@ import matplotlib.pyplot as plt
 import os
 
 def pca(df, recoveryRate, maxComponents=50, outputPath=None):
+    '''
+    Perform PCA on the given DataFrame and plot the explained variance ratios and loading vectors.
+    Args:
+        df (pd.DataFrame): The input DataFrame with features.
+        recoveryRate (float): The desired recovery rate for variance explained.
+        maxComponents (int): The maximum number of components to consider for PCA.
+        outputPath (str): The path to save the plots. If None, the plots will not be saved.
+    Returns:
+        V(pd.DataFrame): The loading vectors of the PCA.
+    Side Effects:
+        Saves the explained variance ratios and loading vectors plots to the specified output path.
+    '''
     # Set all NAs values to 0
     df = df.fillna(0)
 

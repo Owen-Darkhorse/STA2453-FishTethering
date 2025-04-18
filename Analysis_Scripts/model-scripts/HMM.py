@@ -6,6 +6,22 @@ import pandas as pd
 import os
 
 def performHMM(Z_hat, lengthsByFish, outputPath=None):
+    '''
+    Perform HMM on the data Z_hat, which is the score matrix produced by PCA dimensionality reduction.
+    Args:
+        Z_hat: DataFrame, the score matrix produced by PCA dimensionality reduction.
+        lengthsByFish: list, the lengths of each fish in the dataset.
+        outputPath: str, the path to save the output files.
+    Returns:
+        a dict containing the following:
+            - predStates: the predicted states sequence for every row in Z_hat.
+            - startProb: the initial distribution vector of the HMM.
+            - transMat: the transition matrix of the HMM.
+            - means: a matrix, whose columns are the means of the Gaussian Mixture components.
+            - Covars: the covariances of the Gaussian Mixture model.
+            - bic: the BIC score of the HMM.
+            - aic: the AIC score of the HMM.
+    '''
     Z_hat = StandardScaler().fit_transform(Z_hat)
     
     HMM = hmm.GaussianHMM(n_components=4, covariance_type="full", n_iter=1000, tol=0.01)

@@ -5,7 +5,16 @@ import os
 
 def permuteSpecies(stateHat, speciesList, identifiers, outputPath=None):
     """
-    Permute the estimated species labels at each time point find the species assignment that maximizes accuracy
+    Permute the unique HMM states over the unique species list,
+    translate predicted states sequence to predicted species sequence, 
+    and compute the accuracy of the state-speies assignment.
+    Args:
+        stateHat: np.array, the predicted states sequence from HMM
+        speciesList: list of str, the list of species names in the order of the states
+        identifiers: pd.DataFrame, the dataframe containing fishNum and species information
+        outputPath: str, the path to save the results, default is None
+    Return:
+        bestPerm: pd.DataFrame, the best permutation of state-species mapping
     """
     allPermutations = np.array(list(permutations([0, 1, 2, 3])))
     accSmry = pd.DataFrame(columns=["State-Class", "accuracy"])
