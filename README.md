@@ -8,17 +8,18 @@ Each year, the government of Ontario spends over 70 million dollars on fish spec
 Folder | Description
 ---------- | --------------------------------------------------
 [Analyis_Scripts](Analysis_Scripts) | data analysis scripts
-[Data](Data) | contains the raw acoustic data and Echoview processing scripts
-[ExploratoryAnalysis](ExploratoryAnalysis) | contains Jupiter Notebooks and scripts to explore and filter the data, and Python scripts that builds statistical Models
+&nbsp; [eda-scripts](Analysis_Scripts/eda-scripts) | Exploratory Data Analysis Scripts
+&nbsp; [model-scripts](Analysis_Scripts/model-scripts) | Data processing and analysis pipeline, run __main__.py to begin analysis
+&nbsp; [R-scripts](Analysis_Scripts/R-scripts) | R scripts that extract and concatenate acoustic data from multiple fish
+[Data](Data) | contains the raw acoustic data and Echoview processing scripts; each subfolder represent a fish
+[ExploratoryAnalysis](ExploratoryAnalysis) | contains code to explore and test analysis methods
 [ExploratoryAnalysis/FishTrack-EDA-Tool](ExploratoryAnalysis/FishTrack-EDA-Tool) | home folder for shiny app
-[ProcessedData](ProcessedData) | contains data that has been generated from data in *Data*, including training, validation, test split, summary statistics from models.
+[Images](Images) | Contains spectrograms, PCA plots, frequency covariance heatmaps, and a UMAP made during exploratory stage of analysis.
+[ProcessedData](ProcessedData) | [R-scripts](Analysis_Scripts/R-scripts) concatenate raw individual data and output the processed data here. Additinally, when you run __main__.py,the data preparation step will subset the target strengths and fish identifier variables and output the subsetted data here, named "acousticData.csv"
 [NonPingData](NonPingData) | contains fish bio data
 [ExportedFigures](ExportedFigures) | Figures generated from analysis scripts
 WritingSections | Report writing sections
 
-
------------------------------------------------------------------------
-Below are readme from Jessica Levesley's Team
 ## Clone this repo
 Instructions for installing GIT are here: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
@@ -33,17 +34,11 @@ From within RStudio:
 3. From Git
 4. Repository URL = https://github.com/WidebandPingFest/FishTetherExperiment.git
 
-## Folder Structure
-Folder | Description
----------- | --------------------------------------------------
-[Analyis_Scripts](Analysis_Scripts) | data analysis scripts
-[Data](Data) | contains the raw acoustic data and Echoview processing scripts
-[ExploratoryAnalysis](ExploratoryAnalysis) | contains code to explore and filter the data
-[ExploratoryAnalysis/FishTrack-EDA-Tool](ExploratoryAnalysis/FishTrack-EDA-Tool) | home folder for shiny app
-[ProcessedData](ProcessedData) | contains data that has been generated from data in *Data*
-[NonPingData](NonPingData) | contains fish bio data
-[ExportedFigures](ExportedFigures) | Figures generated from analysis scripts
-WritingSections | Report writing sections
+## How to run scripts?
+The model data that is passed to the Python modelling exceeds 100 MB, so it cannot be uploaded to remote GitHub repository. This means that after you clone this repository to your local, you will need to run code in [R-scripts](Analysis_Scripts/R-scripts/) to prepare the model data for Python scripts. To address issue, a bash script is written in [Analysis_Scripts](Analysis_Scripts), named run_pipeline.sh. run_pipeline.sh first runs the [R-scripts](Analysis_Scripts/R-scripts/), to create the model data, named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData.csv". The former will be passed to Python scripts in [model-scripts](Analysis_Scripts/model-scripts) to complete the analysis. In terminal environment, call the name run_pipeline.sh to run the bash script, the analysis will start right away.
+
+-----------------------------------------------------------------------
+Below are readme from Jessica Levesley's Team
 
 ## FishTrack-EDA-Tool
 A shiny app that provides visual representation of fish tracks within the beam and targets strengths for each quadrat. The app can be viewed at: [FishTrack-EDA-Tool](https://gfs8966.shinyapps.io/FishTrack-EDA-Tool/)
