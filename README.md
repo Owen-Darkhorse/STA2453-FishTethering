@@ -101,7 +101,7 @@ if(!("EchoviewR" %in% installed.packages())){
 ### Create local data
 ``` {r}
 # compile unfiltered data
-source('Analysis_Scripts/read_tidy_export_EVfiles.R')
+source('Analysis_Scripts/RScripts/read_tidy_export_EVfiles.R')
 file.exists("ProcessedData/processed_AnalysisData.csv") # expect TRUE if model data has been created
 ```
 ### Load data from clean environment
