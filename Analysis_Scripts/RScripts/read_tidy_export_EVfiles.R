@@ -19,7 +19,7 @@ library(tidyverse)
 library(janitor)
 
 ## Read exported data in to R ----
-source("Analysis_Scripts/custom_functions.R")
+source("Analysis_Scripts/RScripts/custom_functions.R")
 fish <- dir("Data")
 allfish <- lapply(fish, read_tidy_export_EVfiles)
 masterDF <- bind_rows(allfish)
