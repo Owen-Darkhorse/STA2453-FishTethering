@@ -11,11 +11,11 @@ Click here [ExampleDemo](Analysis_Scripts/ExampleDemo.ipynb)to locate the an exa
 Folder | Description
 ---------- | --------------------------------------------------
 [Analyis_Scripts](Analysis_Scripts) | data analysis scripts
-&nbsp; [model-scripts](Analysis_Scripts/model-scripts) | Data processing and analysis pipeline, run __main__.py to begin analysis
-&nbsp; [eda-scripts](Analysis_Scripts/eda-scripts) | Exploratory Data Analysis Scripts
-&nbsp; [R-scripts](Analysis_Scripts/R-scripts) | R scripts that extract and concatenate acoustic data from multiple fish
+&nbsp; [modelScripts](Analysis_Scripts/modelScripts) | Data processing and analysis pipeline, run __main__.py to begin analysis
+&nbsp; [edaScripts](Analysis_Scripts/edaScripts) | Exploratory Data Analysis Scripts
+&nbsp; [RScripts](Analysis_Scripts/RScripts) | R scripts that extract and concatenate acoustic data from multiple fish
 [Data](Data) | contains the raw acoustic data and Echoview processing scripts; each subfolder represent a fish
-[ProcessedData](ProcessedData) | [R-scripts](Analysis_Scripts/R-scripts) filters and concatenate individual raw data and output the processed data here, named as named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData". Additinally, when you run __main__.py,the data preparation step will subset the target strengths and fish number and species and output the subsetted data here, named "acousticData.csv"
+[ProcessedData](ProcessedData) | [RScripts](Analysis_Scripts/RScripts) filters and concatenate individual raw data and output the processed data here, named as named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData". Additinally, when you run __main__.py,the data preparation step will subset the target strengths and fish number and species and output the subsetted data here, named "acousticData.csv"
 [NonPingData](NonPingData) | (not used in this project)  contains fish bio data
 [ExportedFigures](ExportedFigures) | (not used in this project)  Figures generated from analysis scripts
 [ExploratoryAnalysis](ExploratoryAnalysis) | (not used in this project) contains code to explore and test analysis methods
@@ -37,7 +37,7 @@ From within RStudio:
 4. Repository URL = https://github.com/WidebandPingFest/FishTetherExperiment.git
 
 ## How to run scripts?
-The model data that is passed to the Python modelling exceeds 100 MB, so it cannot be uploaded to remote GitHub repository. This means that after you clone this repository to your local, you will need to run code in [R-scripts](Analysis_Scripts/R-scripts/) to prepare the model data for Python scripts. To address issue, a bash script is written in [Analysis_Scripts](Analysis_Scripts), named run_pipeline.sh. run_pipeline.sh first runs the [R-scripts](Analysis_Scripts/R-scripts/), to create the model data, named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData.csv" in [ProcessedData](ProcessedData) folder. The former file will be read by Python scripts in [model-scripts](Analysis_Scripts/model-scripts) to complete the analysis. In terminal environment, call the name run_pipeline.sh to run the bash script, the analysis will start right away.
+The model data that is passed to the Python modelling exceeds 100 MB, so it cannot be uploaded to remote GitHub repository. This means that after you clone this repository to your local, you will need to run code in [RScripts](Analysis_Scripts/RScripts/) to prepare the model data for Python scripts. To address issue, a bash script is written in [Analysis_Scripts](Analysis_Scripts), named run_pipeline.sh. run_pipeline.sh first runs the [RScripts](Analysis_Scripts/RScripts/), to create the model data, named as "processed_AllFishCombined_unfiltered.csv" and "processed_AnalysisData.csv" in [ProcessedData](ProcessedData) folder. The former file will be read by Python scripts in [modelScripts](Analysis_Scripts/modelScripts) to complete the analysis. In terminal environment, call the name run_pipeline.sh to run the bash script, the analysis will start right away.
 
 More detailed explanation on how to manually run the python script will be explained below, provided by Jessica Levesley's Team, former researcher on fish sound classification.
 -----------------------------------------------------------------------
