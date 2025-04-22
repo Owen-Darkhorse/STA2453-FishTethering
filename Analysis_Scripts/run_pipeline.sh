@@ -3,7 +3,7 @@
 # Run the R script
 echo "Running R script to concatenate and tidy EV files"
 
-if [-f "ProcessData/processed_AllFishCombined_unfiltered.csv"]
+if [ -f "ProcessData/processed_AllFishCombined_unfiltered.csv" ]; then
   echo "Model data already exists, skipping R script."
   exit 0
 else
