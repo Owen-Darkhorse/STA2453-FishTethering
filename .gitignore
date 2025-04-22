@@ -39,8 +39,8 @@ vignettes/*.pdf
 .Renviron
 
 # Image files
-*.jpg
-*.png
+# *.jpg
+# *.png
 
 # Acoustic Data file types
 *.bot
@@ -72,3 +72,15 @@ ExploratoryAnalysis/FishTrack-EDA-Tool/rsconnect
 # Ignore Apple specific files
 *.icloud
 *.DS_Store
+
+## Ignore Archived Data
+Archived/Archived-Data/acousticDataFrame.csv
+Archived/Archived-Data/edaFreqRaw.csv
+Archived/Archived-Data/edaData.csv
+
+## Ignore Data files
+Data/*.csv
+Data/*.Rdata
+
+## Ignore python cached files
+Analysis_Scripts/model-scripts/*.pyc
